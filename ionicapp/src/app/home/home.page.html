@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Welcome to my Webseite!
+      Validators to Enter
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,62 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Welcome to my Webseite!</ion-title>
+      <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
   </ion-header>
+  <form #form="ngForm">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Login</ion-card-title>
+      <ion-card-subtitle></ion-card-subtitle>
+    </ion-card-header>
+    
+    <ion-list>
+      <ion-item>
+        <ion-label>Email</ion-label>
+        <ion-input 
+          type="email" 
+          placeholder="email@domain.com"
+          required="required"
+          [clearInput]="true"
+          name="login_email"
+          [ngModel]="login_email">
+        </ion-input>
+      </ion-item>
 
-  <div id="container">
-    <strong>Here is contens</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+      <ion-item>
+        <ion-label>Password</ion-label>
+        <ion-input 
+          type="password" 
+          placeholder="Enter password"
+          required="required"
+          [clearInput]="true"
+          name="login_password"
+          [ngModel]="login_password">
+        </ion-input>
+      </ion-item>  
+    
+    </ion-list>
+    <!-- To the other page, Link and Button -->
+    <ion-button 
+      shape="round"
+      expand="block"
+      type="submit"
+      (click)="loginForm(form)"
+      [disabled]="!form.valid"
+      routerLink="/home2"
+      routerDirection="forward">
+      Login
+    </ion-button>
+
+    <ion-button 
+      shape="round"
+      expand="block"
+      routerLink="/home2"
+      routerDirection="forward">
+      Continue as a guest
+    </ion-button>
+  </ion-card>
+</form>
+
 </ion-content>
